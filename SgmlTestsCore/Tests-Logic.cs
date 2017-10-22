@@ -25,7 +25,7 @@ using System.IO;
 using System.Xml;
 using log4net;
 using SgmlCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace SGMLTestsCore
 {
@@ -91,7 +91,7 @@ namespace SGMLTestsCore
                 throw new ArgumentException("unknown value", "xmlRender");
             }
             actual = RunTest(caseFolding, doctype, format, source, callback);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         private static void ReadTest(string name, out string before, out string after) {
@@ -141,7 +141,7 @@ namespace SGMLTestsCore
                     doc.Load(stringReader);
                 }
             } catch(Exception) {
-                Assert.Fail( $"unable to parse sgml reader output:\n{actual}");
+                Assert.False(true, $"unable to parse sgml reader output:\n{actual}");
             }
             return actual.Trim().Replace("\r", "");
         }

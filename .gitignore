@@ -19,8 +19,7 @@ App_Data/
 *.userprefs
 *.pidb
 *.resources
-SGMLTests/test-results/*.xml
-test-results/*.xml
+SGMLTestsCore/TestResults
 *.test-cache
 build/
 .vs
