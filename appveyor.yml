@@ -14,7 +14,7 @@ install:
 build_script:
 - cmd: dotnet build -c Release
 test_script:
-- cmd: dotnet test
+- cmd: dotnet test ./SgmlTestsCore
 artifacts:
 - path: SgmlReaderCore\bin\Release\*.nupkg
   name: Nuget_Package
