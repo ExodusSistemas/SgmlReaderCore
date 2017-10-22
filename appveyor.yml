@@ -1,0 +1,15 @@
+version: 0.9.0.{build}
+image: Visual Studio 2017
+clone_folder: c:\projects\SgmlReader\
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+build_script:
+- cmd: dotnet build -c Release
+test_script:
+- cmd: dotnet xunit -appveyor
+artifacts:
+- path: SgmlReaderCore\bin\Release\*.nupkg
+  name: Nuget_Package
