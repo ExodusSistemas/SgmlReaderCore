@@ -6,10 +6,15 @@ dotnet_csproj:
   file: '**\*.csproj'
   version: '{version}'
   package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+install:
+- cmd: dotnet restore
 build_script:
 - cmd: dotnet build -c Release
 test_script:
-- cmd: dotnet xunit -appveyor
+- cmd: dotnet test
 artifacts:
 - path: SgmlReaderCore\bin\Release\*.nupkg
   name: Nuget_Package
